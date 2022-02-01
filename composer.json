@@ -1,0 +1,21 @@
+{
+    "name": "jellelampaert/ci4_queue",
+    "description": "CodeIgniter4 queuing system",
+    "keywords": ["codeigniter4", "queue"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jelle Lampaert",
+            "email": "jellelampaert@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "codeigniter4/framework": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "jellelampaert\\ci4_queue\\": "src"
+        }
+    }
+}
