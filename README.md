@@ -114,6 +114,16 @@ $queue = new Queue();
 $queue->queue('email')->setProcessed(1);
 ```
 
+### Queue::setResponse($id, $data)
+
+Sets the response of a task.
+This can be used for logging purposes or debugging
+
+```php
+$queue = new Queue();
+$queue->setResponse(1, 'HTTP Error 404');
+```
+
 ## License
 
 This package is free software distributed under the terms of the [MIT license](LICENSE.md).

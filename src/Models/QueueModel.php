@@ -26,6 +26,7 @@ class QueueModel extends Model
         $dbdata = $this->db->table($this->table)->where('queue', $queue)->orderBy('created', 'DESC')->get()->getResult();
         foreach ($dbdata as &$data) {
             $data->data = unserialize(base64_decode($data->data));
+            $data->response = unserialize(base64_decode($data->response));
         }
         return $dbdata;
     }
@@ -35,6 +36,7 @@ class QueueModel extends Model
         $dbdata = $this->db->table($this->table)->where('processed', 0)->get()->getResult();
         foreach ($dbdata as &$data) {
             $data->data = unserialize(base64_decode($data->data));
+            $data->response = unserialize(base64_decode($data->response));
         }
         return $dbdata;
     }
@@ -44,6 +46,7 @@ class QueueModel extends Model
         $dbdata = $this->db->table($this->table)->where('processed', 0)->where('queue', $queue)->get()->getResult();
         foreach ($dbdata as &$data) {
             $data->data = unserialize(base64_decode($data->data));
+            $data->response = unserialize(base64_decode($data->response));
         }
         return $dbdata;
     }
@@ -61,6 +64,13 @@ class QueueModel extends Model
     {
         $this->db->table($this->table)->where('id', $id)->update(array(
             'processed' => time()
+        ));
+    }
+
+    public function setResponse($id, $data)
+    {
+        $this->db->table($this->table)->where('id', $id)->update(array(
+            'response'  => base64_encode(serialize($data)),
         ));
     }
 }

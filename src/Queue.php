@@ -99,6 +99,17 @@ class Queue
     }
 
     /*
+     * Set the response of this queue (i.e. when needed for logging)
+     * 
+     * @param int $id
+     * @param mixed $data
+     */
+    public function setResponse($id, $data)
+    {
+        $this->model->setResponse($id, $data);
+    }
+
+    /*
      * Select the name of the queue to use
      * 
      * @param string $queue
