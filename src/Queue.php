@@ -78,6 +78,16 @@ class Queue
     }
 
     /*
+     * Get a task by it's ID
+     * 
+     * @return object|boolean
+     */
+    public function getTask($id)
+    {
+        return $this->model->getTask($id);
+    }
+
+    /*
      * Get all unprocessed tasks from the queue
      * 
      * @param string $queue

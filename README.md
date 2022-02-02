@@ -96,6 +96,15 @@ $queue = new Queue();
 $queue->getAllUnprocessed();
 ```
 
+### Queue::getTask($id)
+
+Gets a task by it's ID
+
+```php
+$queue = new Queue();
+$queue->getTask(1);
+```
+
 ### Queue::getUnprocessed()
 
 Get all unprocessed tasks from a queue.

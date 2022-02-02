@@ -41,6 +41,11 @@ class QueueModel extends Model
         return $dbdata;
     }
 
+    public function getTask($id)
+    {
+        return $this->db->table($this->table)->where('id', $id)->get()->getRow();
+    }
+
     public function getUnprocessed($queue)
     {
         $dbdata = $this->db->table($this->table)->where('processed', 0)->where('queue', $queue)->get()->getResult();
