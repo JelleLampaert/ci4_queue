@@ -51,6 +51,24 @@ $queue->queue('email')->add(array(
 ));
 ```
 
+### Queue::clean($hours)
+
+Delete all tasks from a queue that are processed more than x hours ago.
+
+```php
+$queue = new Queue();
+$queue->queue('email')->clean(24);
+```
+
+### Queue::cleanAll($hours)
+
+Delete all tasks from all queues that are processed more than x hours ago.
+
+```php
+$queue = new Queue();
+$queue->cleanAll(24);
+```
+
 ### Queue::delete($id)
 
 Delete a task from the database.

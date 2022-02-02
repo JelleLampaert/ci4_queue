@@ -6,6 +6,16 @@ class QueueModel extends Model
 {
     protected $table = 'queue';
 
+    public function cleanAllOldTasks($hours)
+    {
+        $this->db->table($this->table)->where('processed > ', 0)->where('processed < ', time() - ($hours * 3600))->delete();
+    }
+
+    public function cleanOldTasks($queue, $hours)
+    {
+        $this->db->table($this->table)->where('queue', $queue)->where('processed > ', 0)->where('processed < ', time() - ($hours * 3600))->delete();
+    }
+
     public function deleteTask($id)
     {
         $this->db->table($this->table)->where('id', $id)->delete();

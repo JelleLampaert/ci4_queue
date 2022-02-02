@@ -28,6 +28,26 @@ class Queue
     }
 
     /*
+     * Clears tasks older than x hours for a specific queue
+     * 
+     * @param int $hours
+     */
+    public function clean($hours = 108000)
+    {
+        $this->model->cleanOldTasks($this->queue, $hours);
+    }
+
+    /*
+     * Clears tasks older than x hours for all queues
+     * 
+     * @param int $hours
+     */
+    public function cleanAll($hours = 108000)
+    {
+        $this->model->cleanAllOldTasks($hours);
+    }
+
+    /*
      * Delete a task
      * 
      * @param int $id
